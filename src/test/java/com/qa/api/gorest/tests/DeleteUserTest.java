@@ -21,11 +21,11 @@ public class DeleteUserTest extends BaseTest {
 	
 	private String tokenId;
 	
-	@BeforeClass
-	public void setUpToken() {
-		tokenId = "0b1f4149f71eb8d41f178514f81a5d2feb067ee39d577899c6f0603b4a2d73a6";
-		ConfigManager.set("bearertoken", tokenId);
-	}
+//	@BeforeClass
+//	public void setUpToken() {
+//		tokenId = "0b1f4149f71eb8d41f178514f81a5d2feb067ee39d577899c6f0603b4a2d73a6";
+//		ConfigManager.set("bearertoken", tokenId);
+//	}
 	
 	@Test
 	public void deleteUserTest() {

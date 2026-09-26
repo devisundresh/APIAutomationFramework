@@ -21,7 +21,7 @@ public class ReqResTest extends BaseTest{
 		queryMap.put("page", "2");
 		Response response = restClient.get(BASE_URL_REQRES, REQRES_ENDPOINT, queryMap, null, AuthType.NO_AUTH, ContentType.ANY);
 		System.out.println(response.statusCode());
-		//Assert.assertTrue(response.statusLine().equals("OK"));
+		Assert.assertTrue(response.statusLine().equals("OK"));
 	}
 
 }
