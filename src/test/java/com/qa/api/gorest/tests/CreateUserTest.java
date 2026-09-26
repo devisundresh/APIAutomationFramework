@@ -57,7 +57,7 @@ public class CreateUserTest extends BaseTest{
 //				+ "    \"email\": \"Priyadevi00081@opencart.com\",\n"
 //				+ "    \"gender\": \"female\",\n"
 //				+ "    \"status\": \"active\"\n"
-//				+ "}";
+//				+ "}"; ---> can supply string instead user
 		
 	
 		System.out.println("AuthType.BEARER_TOKEN: "+AuthType.BEARER_TOKEN);
