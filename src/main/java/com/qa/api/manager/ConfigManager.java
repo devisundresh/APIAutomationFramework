@@ -15,7 +15,7 @@ public class ConfigManager {
 		
 		//static block execute the moment class loaded before main method. The moment class loaded in class loader, static block get executed.
 		//mvn clean install -Denv=qa/stage/dev/uat/prod (System Environment variables)
-		//if env not given.. run QA by default
+		//if env not given.. run PROD by default
 		
 		String envName = System.getProperty("env", "prod");
 		System.out.println("Running tests on env:" +envName);		

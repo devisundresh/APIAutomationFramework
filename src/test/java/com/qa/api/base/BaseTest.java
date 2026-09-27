@@ -1,5 +1,6 @@
 package com.qa.api.base;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import io.qameta.allure.restassured.AllureRestAssured;
@@ -7,6 +8,7 @@ import io.qameta.allure.restassured.AllureRestAssured;
 
 import com.qa.api.client.RestClient;
 import com.qa.api.manager.ConfigManager;
+import com.qa.api.mocking.WireMockSetup;
 
 import io.restassured.RestAssured;
 //import com.aventstack.chaintest.plugins.ChainTestListener;
@@ -27,6 +29,7 @@ public class BaseTest {
 	protected static String BASE_URL_FAKE_STORE;
 	protected static String BASE_URL_OAUTH2_AMADEUS;
 	protected static String BASE_URL_ERGAST_CIRCUIT;
+	protected static final String BASE_URL_WIREMOCKSERVER = "http://localhost:8089";
 	
 	//**** API ENDPOINTS******//
 	protected final static String GOREST_USERS_ENDPOINT="/public/v2/users";
@@ -38,6 +41,7 @@ public class BaseTest {
 	protected final static String OAUTH2_AMADEUS_ENDPOINT="/v1/security/oauth2/token";
 	protected final static String AMADEUS_FLIGHT_DEST_ENDPOINT="/v1/shopping/flight-destinations";
 	protected final static String ERGAST_CIRCUIT_ENDPOINT="/api/f1/2017/circuits.xml";
+	protected final static String WIREMOCKSERVER_ENDPOINT="/api/users";
 	
 	@BeforeSuite
 	public void initSetUp() {
@@ -52,10 +56,15 @@ public class BaseTest {
 	}
 
 	@BeforeTest
-	public void setUp() {
-		
+	public void setUp() {		
 		restClient = new RestClient(); //can be used commonly in all my tests. not required to create object again and again
+		WireMockSetup.startWireMockServer();
 		
+	}
+	
+	@AfterTest
+	public void stopMockServer() {
+		WireMockSetup.stopWireMockServer();
 	}
 	
 }
